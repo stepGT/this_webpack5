@@ -2,7 +2,13 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-export default (env: any) => {
+type Mode = 'production' | 'development';
+
+interface EnvVariables {
+  mode: Mode;
+}
+
+export default (env: EnvVariables) => {
   const config: webpack.Configuration = {
     mode: env.mode ?? 'development',
     entry: path.resolve(__dirname, 'src', 'index.ts'),
