@@ -10,6 +10,7 @@ export const App = () => {
   const increment = () => setCount((prev) => prev + 1);
   return (
     <div>
+      <h1>{ __PLATFORM__ }</h1>
       <div>
         <img width={100} height={100} src={avatarJPG} alt="" />
         <img width={100} height={100} src={avatarPNG} alt="" />
