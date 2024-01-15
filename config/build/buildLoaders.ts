@@ -45,9 +45,16 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
     use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, cssLoaderWithModule, 'sass-loader'],
   };
   const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
     exclude: /node_modules/,
+    test: /\.tsx?$/,
+    use: [
+      {
+        loader: 'ts-loader',
+        options: {
+          transpileOnly: true,
+        },
+      },
+    ],
   };
   return [assetLoader, scssLoader, tsLoader, svgrLoader];
 }
