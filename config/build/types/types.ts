@@ -2,6 +2,7 @@
   entry: string;
   html: string;
   output: string;
+  public: string;
   src: string;
 }
 
